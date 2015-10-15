@@ -19,6 +19,7 @@
 #include "flashgg/DataFormats/interface/VBFDiPhoDiJetMVAResult.h"
 #include "flashgg/DataFormats/interface/VBFMVAResult.h"
 #include "flashgg/DataFormats/interface/VBFTag.h"
+#include "flashgg/DataFormats/interface/MonoHTag.h"
 #include "flashgg/DataFormats/interface/VHHadronicTag.h"
 #include "flashgg/DataFormats/interface/VHLooseTag.h"
 #include "flashgg/DataFormats/interface/VHTightTag.h"
@@ -158,6 +159,10 @@ namespace  {
         flashgg::VBFTag vbf_cat;
         std::vector<flashgg::VBFTag> vec_vbf_cat;
         edm::Wrapper<std::vector<flashgg::VBFTag> > wrp_vec_vbf_cat;
+
+        flashgg::MonoHTag monoh_cat;
+        std::vector<flashgg::MonoHTag> vec_monoh_cat;
+        edm::Wrapper<std::vector<flashgg::MonoHTag> > wrp_vec_monoh_cat;
 
         flashgg::TTHLeptonicTag tthl;
         std::vector<flashgg::TTHLeptonicTag> vec_tthl;

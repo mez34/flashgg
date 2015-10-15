@@ -43,6 +43,15 @@ flashggVBFTag = cms.EDProducer("FlashggVBFTagProducer",
                                Boundaries=cms.untracked.vdouble(0.21,0.6,0.81)
 )
 
+flashggMonoHTag = cms.EDProducer("FlashggMonoHTagProducer",
+                               DiPhotonTag=cms.InputTag('flashggDiPhotons'),
+                               SystLabel=cms.string(""),
+                               MVAResultTag=cms.InputTag('flashggDiPhotonMVA'),
+                               GenParticleTag=cms.InputTag( "flashggPrunedGenParticles" ),
+                               METTag=cms.InputTag('slimmedMETs'),
+                               #metThreshold = cms.untracked.double(70),
+                               #Boundaries=cms.untracked.vdouble(0.21,0.6,0.81)
+)
 
 flashggVHEtTag = cms.EDProducer("FlashggVHEtTagProducer",
                                 DiPhotonTag=cms.InputTag('flashggDiPhotons'),
