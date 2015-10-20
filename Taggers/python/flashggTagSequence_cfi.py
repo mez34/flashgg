@@ -12,7 +12,8 @@ flashggTagSequence = cms.Sequence(flashggDiPhotonMVA
                                   * flashggVBFDiPhoDiJetMVA
                                   * flashggVBFDiPhoDiJetMVANew
                                   * ( flashggUntagged
-                                      + flashggVBFTag
+				     + flashggMonoHTag
+                                     + flashggVBFTag
                                      + flashggTTHLeptonicTag
                                      + flashggVHEtTag
                                      + flashggTTHHadronicTag

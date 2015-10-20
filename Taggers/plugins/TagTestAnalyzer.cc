@@ -22,6 +22,7 @@
 #include "DataFormats/Common/interface/Handle.h"
 
 #include "flashgg/DataFormats/interface/VBFTag.h"
+#include "flashgg/DataFormats/interface/MonoHTag.h"
 #include "flashgg/DataFormats/interface/UntaggedTag.h"
 #include "flashgg/DataFormats/interface/DiPhotonTagBase.h"
 #include "flashgg/DataFormats/interface/TTHHadronicTag.h"
@@ -103,6 +104,13 @@ namespace flashgg {
                 if( untagged->tagTruth().isNonnull() ) {
                     std::cout << "\t[UNTAGGED TRUTH]: genPV=" << untagged->tagTruth()->genPV() << std::endl;
                 }
+            }
+
+            const	MonoHTag *monohtag = dynamic_cast<const MonoHTag *>( chosenTag );
+            if( monohtag != NULL ) {
+                std::cout << "[MonoH] Category " << monohtag->categoryNumber() 
+                          << " with met " //<< monohtag->met()
+                          << std::endl;
             }
 
             const	VBFTag *vbftag = dynamic_cast<const VBFTag *>( chosenTag );
@@ -211,7 +219,7 @@ namespace flashgg {
             // IMPORTANT: All future Tags must be added in the way of untagged and vbftag.
 
             if( untagged == NULL && vbftag == NULL && tthhadronictag == NULL && tthleptonictag == NULL && vhtighttag == NULL && vhloosetag == NULL &&
-                    vhhadronictag == NULL && vhettag == NULL ) {
+                    vhhadronictag == NULL && vhettag == NULL && monohtag == NULL) {
                 std::cout << "[FAILED TO CONVERT TAG] with SumPt " << chosenTag->sumPt() << std::endl;
             }
 

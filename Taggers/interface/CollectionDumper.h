@@ -87,38 +87,6 @@ namespace flashgg {
         int maxCandPerEvent_;
         double sqrtS_;
         double intLumi_;
-        std::string nameTemplate_;
-
-        bool dumpTrees_;
-        bool dumpWorkspace_;
-        std::string workspaceName_;
-        bool dumpHistos_, dumpGlobalVariables_;
-
-        classifier_type classifier_;
-        std::map< KeyT, bool> hasSubcat_;
-        bool throwOnUnclassified_;
-        
-        // event weight
-        float weight_;
-
-        //std::map<std::string, std::vector<dumper_type> > dumpers_; FIXME template key
-        std::map< KeyT, std::vector<dumper_type> > dumpers_;
-        RooWorkspace *ws_;
-        /// TTree * bookTree(const std::string & name, TFileDirectory& fs);
-        /// void fillTreeBranches(const flashgg::Photon & pho)
-
-        GlobalVariablesDumper *globalVarsDumper_;
-    };
-
-    template<class C, class T, class U>
-    CollectionDumper<C, T, U>::CollectionDumper( const edm::ParameterSet &cfg, TFileDirectory &fs ):
-        edm::BasicAnalyzer::BasicAnalyzer( cfg, fs ),
-        src_( cfg.getParameter<edm::InputTag>( "src" ) ),
-        genInfo_( cfg.getParameter<edm::InputTag>( "generatorInfo" ) ),
-        processId_( cfg.getParameter<std::string>( "processId" ) ),
-        lumiWeight_( cfg.getParameter<double>( "lumiWeight" ) ),
-        maxCandPerEvent_( cfg.getParameter<int>( "maxCandPerEvent" ) ),
-        sqrtS_( cfg.getUntrackedParameter<double>( "sqrtS", 13. ) ),
         intLumi_( cfg.getUntrackedParameter<double>( "intLumi",1000. ) ),
         nameTemplate_( cfg.getUntrackedParameter<std::string>( "nameTemplate", "$COLLECTION" ) ),
         dumpTrees_( cfg.getUntrackedParameter<bool>( "dumpTrees", false ) ),
